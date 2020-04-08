@@ -4,7 +4,7 @@ import InvalidFeedback from "./invalid-feedback"
 import PropTypes from "prop-types"
 import React from "react"
 
-export default class BootstrapStringInput extends React.Component {
+export default class ApiMakerBootstrapStringInput extends React.Component {
   static propTypes = {
     append: PropTypes.node,
     attribute: PropTypes.string,
@@ -112,7 +112,7 @@ export default class BootstrapStringInput extends React.Component {
                 </span>
               </div>
             }
-            <ApiMakerInput
+            <Input
               attribute={attribute}
               className={this.inputClassName()}
               defaultValue={this.inputDefaultValue()}

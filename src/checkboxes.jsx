@@ -5,7 +5,7 @@ import React from "react"
 
 const inflection = require("inflection")
 
-export default class BootstrapCheckboxes extends React.Component {
+export default class ApiMakerBootstrapCheckboxes extends React.Component {
   static propTypes = PropTypesExact({
     attribute: PropTypes.string,
     defaultValue: PropTypes.array,

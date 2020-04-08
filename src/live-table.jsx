@@ -1,9 +1,12 @@
-import { Collection, EventCreated, EventDestroyed, params } from "api-maker"
+import { Collection, EventCreated, EventDestroyed, Params } from "api-maker"
 import { Paginate } from "api-maker-bootstrap"
+import PropTypes from "prop-types"
+import PropTypesExact from "prop-types-exact"
+import React from "react"
 
 const inflection = require("inflection")
 
-export default class LiveTable extends React.Component {
+export default class ApiMakerBootstrapLiveTable extends React.Component {
   static defaultProps = {
     preloads: [],
     select: {}

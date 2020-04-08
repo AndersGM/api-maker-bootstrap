@@ -4,7 +4,7 @@ import React from "react"
 
 const inflection = require("inflection")
 
-export default class extends React.Component {
+export default class ApiMakerBootstrapSortLink extends React.Component {
   constructor(props) {
     super(props)
     const searchKey = this.props.query.queryArgs.searchKey || "q"

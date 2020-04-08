@@ -1059,7 +1059,7 @@ anymatch@^2.0.0:
 
 "api-maker-inputs@https://github.com/kaspernj/api-maker-inputs.git":
   version "1.0.0"
-  resolved "https://github.com/kaspernj/api-maker-inputs.git#d5faf1e3021a20ba31cc6b9918d7f10b5a3378ea"
+  resolved "https://github.com/kaspernj/api-maker-inputs.git#b88842e73be3e976d4765a8c934c93f49a88fc3a"
   dependencies:
     classnames "^2.2.6"
     inflection "^1.12.0"

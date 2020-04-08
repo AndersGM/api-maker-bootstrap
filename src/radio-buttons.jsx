@@ -1,11 +1,12 @@
 import { EventListener } from "api-maker"
 import InvalidFeedback from "./invalid-feedback"
+import PropTypes from "prop-types"
 import PropTypesExact from "prop-types-exact"
 import React from "react"
 
 const inflection = require("inflection")
 
-export default class BootstrapRadioButtons extends React.Component {
+export default class ApiMakerBootstrapRadioButtons extends React.Component {
   static propTypes = PropTypesExact({
     attribute: PropTypes.string,
     collection: PropTypes.array.isRequired,

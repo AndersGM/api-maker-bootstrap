@@ -1,12 +1,13 @@
 import AttributeRow from "./attribute-row"
 import PropTypes from "prop-types"
+import PropTypesExact from "prop-types-exact"
 import React from "react"
 
-export default class BootstrapAttributeRows extends React.Component {
-  static propTypes = {
+export default class ApiMakerBootstrapAttributeRows extends React.Component {
+  static propTypes = PropTypesExact({
     attributes: PropTypes.array.isRequired,
     model: PropTypes.object.isRequired
-  }
+  })
 
   constructor(props) {
     super(props)

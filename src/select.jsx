@@ -1,36 +1,30 @@
 import { EventListener } from "api-maker"
+import { idForComponent, nameForComponent, Select } from "api-maker-inputs"
 import InvalidFeedback from "./invalid-feedback"
 import PropTypes from "prop-types"
-import PropTypesExact from "prop-types-exact"
 import React from "react"
 
 const inflection = require("inflection")
 
-export default class BootstrapSelect extends React.Component {
-  static propTypes = PropTypesExact({
+export default class ApiMakerBootstrapSelect extends React.Component {
+  static propTypes = {
     attribute: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    "data-controller": PropTypes.string,
     defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
     description: PropTypes.node,
-    disabled: PropTypes.bool,
     id: PropTypes.string,
     includeBlank: PropTypes.bool,
-    hideSearch: PropTypes.bool,
     hint: PropTypes.node,
     hintBottom: PropTypes.node,
     label: PropTypes.node,
     labelContainerClassName: PropTypes.string,
     model: PropTypes.object,
-    multiple: PropTypes.bool,
     name: PropTypes.string,
     placeholder: PropTypes.string,
-    onChange: PropTypes.func,
     options: PropTypes.array,
-    select2: PropTypes.bool,
     wrapperClassName: PropTypes.string
-  })
+  }
 
   constructor(props) {
     super(props)
@@ -41,18 +35,6 @@ export default class BootstrapSelect extends React.Component {
 
   componentDidMount() {
     this.setForm()
-
-    if (this.props.select2 && this.props.onChange)
-      $(this.refs.select).on("change", this.props.onChange)
-
-    // Set default value to nothing when multiple
-    if (this.props.select2 && this.props.multiple && !this.inputDefaultValue())
-      $(this.refs.select).val("")
-  }
-
-  componentWillUnmount() {
-    if (this.props.select2 && this.props.onChange)
-      $(this.refs.select).off("change", this.props.onChange)
   }
 
   componentDidUpdate() {
@@ -66,51 +48,56 @@ export default class BootstrapSelect extends React.Component {
 
   render() {
     const { form, validationErrors } = this.state
+    const {
+      attribute,
+      children,
+      className,
+      defaultValue,
+      id,
+      includeBlank,
+      hint,
+      hintBottom,
+      label,
+      labelContainerClassName,
+      model,
+      name,
+      placeholder,
+      options,
+      wrapperClassName,
+      ...restProps
+    } = this.props
 
     return (
       <div className={this.wrapperClassName()}>
         {form && <EventListener event="validation-errors" onCalled={event => this.onValidationErrors(event)} target={form} />}
         {this.label() &&
-          <div className={this.props.labelContainerClassName ? this.props.labelContainerClassName : null}>
+          <div className={labelContainerClassName ? labelContainerClassName : null}>
             <label className={this.labelClassName()} htmlFor={this.inputId()}>
               {this.label()}
             </label>
           </div>
         }
-        {this.props.description &&
+        {description &&
           <div className="mb-4">
-            {this.props.description}
+            {description}
           </div>
         }
-        {this.props.hint &&
-          <span className="form-text text-muted font-smoothing font-xs">
-            {this.props.hint}
+        {hint &&
+          <span className="font-smoothing font-xs form-text text-muted">
+            {hint}
           </span>
         }
-        <select
-          data-controller={this.dataController()}
-          data-hide-search={this.props.hideSearch}
-          data-placeholder={this.props.placeholder}
+        <Select
           defaultValue={this.inputDefaultValue()}
           className={this.selectClassName()}
-          disabled={this.props.disabled}
           id={this.inputId()}
-          multiple={this.props.multiple}
           name={this.inputName()}
-          onChange={this.props.onChange}
           ref="select"
-          >
-          {this.includeBlank() &&
-            <option />
-          }
-          {this.props.options && this.props.options.map(option => (
-            <option key={`select-option-${option[1]}`} value={option[1]}>{option[0]}</option>
-          ))}
-          {this.props.children}
-        </select>
-        {this.props.hintBottom &&
+          {...restProps}
+        />
+        {hintBottom &&
           <span className="form-text text-muted font-smoothing font-xs">
-            {this.props.hintBottom}
+            {hintBottom}
           </span>
         }
         {validationErrors.length > 0 && <InvalidFeedback errors={validationErrors} />}
@@ -118,16 +105,8 @@ export default class BootstrapSelect extends React.Component {
     )
   }
 
-  dataController() {
-    if ("data-controller" in this.props) {
-      return this.props["data-controller"]
-    } else if (this.props.select2) {
-      return "select2--default"
-    }
-  }
-
   includeBlank() {
-    if (this.props.includeBlank || (this.props.placeholder && !this.props.multiple)) {
+    if (this.props.includeBlank || !this.props.multiple) {
       return true
     } else {
       return false
@@ -148,19 +127,11 @@ export default class BootstrapSelect extends React.Component {
   }
 
   inputId() {
-    if ("id" in this.props) {
-      return this.props.id
-    } else if (this.props.model) {
-      return `${this.props.model.modelClassData().paramKey}_${inflection.underscore(this.props.attribute)}`
-    }
+    return idForComponent(this)
   }
 
   inputName() {
-    if ("name" in this.props) {
-      return this.props.name
-    } else if (this.props.model) {
-      return `${this.props.model.modelClassData().paramKey}[${inflection.underscore(this.props.attribute)}]`
-    }
+    return nameForComponent(this)
   }
 
   label() {
