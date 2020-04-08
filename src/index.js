@@ -9,7 +9,7 @@ import RadioButtons from "./radio-buttons"
 import Select from "./input"
 import SortLink from "./sort-link"
 
-export {
+export default {
   AttributeRow,
   AttributeRows,
   Card,
