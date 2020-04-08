@@ -1,4 +1,4 @@
-import AttributeRow from "./attribute-row"
+import AttributeRow from "./attribute-row.jsx"
 import PropTypes from "prop-types"
 import React from "react"
 

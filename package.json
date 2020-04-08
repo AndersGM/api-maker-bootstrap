@@ -11,7 +11,7 @@
   "name": "@kaspernj/api-maker-bootstrap",
   "version": "1.0.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack"
   },

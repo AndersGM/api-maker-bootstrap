@@ -1,7 +1,6 @@
-import { ApiMakerInput, idForComponent, nameForComponent } from "api-maker-inputs"
+import { Input, idForComponent, Money, nameForComponent } from "api-maker-inputs"
 import { EventListener } from "api-maker"
-import InvalidFeedback from "./invalid-feedback"
-import MoneyInput from "./money-input"
+import InvalidFeedback from "./invalid-feedback.jsx"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -91,7 +90,7 @@ export default class BootstrapStringInput extends React.Component {
           />
         }
         {this.inputType() == "money" &&
-          <MoneyInput
+          <Money
             attribute={attribute}
             currenciesCollection={currenciesCollection}
             currencyName={currencyName}
