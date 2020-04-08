@@ -63,7 +63,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
       labelClassName,
       model,
       name,
-      onChange,
       prepend,
       wrapperClassName,
       ...restProps
@@ -100,7 +99,7 @@ export default class ApiMakerBootstrapInput extends React.Component {
             model={model}
             name={name}
             className={this.inputClassName()}
-            onChange={onChange}
+            onChange={this.props.onChange}
             placeholder={placeholder}
             small={small}
             ref="money"
@@ -122,7 +121,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
               id={this.inputId()}
               model={model}
               name={this.inputName()}
-              onChange={(e) => this.onInputChanged(e)}
               ref="input"
               type={this.inputType()}
               {...restProps}
@@ -214,13 +212,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
       classNames.push(this.props.labelClassName)
 
     return classNames.join(" ")
-  }
-
-  onInputChanged(e) {
-    const { onChange, type } = this.props
-
-    if (type == "file") this.setState({blankInputName: this.getBlankInputName()})
-    if (onChange) onChange(e)
   }
 
   // This fixes an issue in Firefox and ActiveStorage, where uploads would be a blank string if a file wasn't chosen
