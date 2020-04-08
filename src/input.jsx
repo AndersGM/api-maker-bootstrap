@@ -65,6 +65,7 @@ export default class ApiMakerBootstrapInput extends React.Component {
       name,
       onChange,
       prepend,
+      wrapperClassName,
       ...restProps
     } = this.props
 
