@@ -21,28 +21,5 @@
   "bugs": {
     "url": "https://github.com/kaspernj/api-maker-bootstrap/issues"
   },
-  "homepage": "https://github.com/kaspernj/api-maker-bootstrap#readme",
-  "dependencies": {
-    "api-maker": "https://github.com/kaspernj/api-maker.git",
-    "api-maker-inputs": "https://github.com/kaspernj/api-maker-inputs.git",
-    "classnames": "^2.2.6",
-    "prop-types": "^15.7.2",
-    "prop-types-exact": "^1.2.0",
-    "react": "^16.13.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "inflection": "^1.12.0",
-    "qs": "^6.9.3",
-    "react-router-dom": "^5.1.2",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  }
+  "homepage": "https://github.com/kaspernj/api-maker-bootstrap#readme"
 }
