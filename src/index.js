@@ -1,15 +1,13 @@
-const AttributeRow = require("./attribute-row")
-const AttributeRows = require("./attribute-rows")
-const Card = require("./card")
-const Checkbox = require("./checkbox")
-const Checkboxes = require("./checkboxes")
-const Input = require("./input")
-const Paginate = require("./paginate")
-const RadioButtons = require("./radio-buttons")
-const Select = require("./input")
-const SortLink = require("./sort-link")
-
-console.log({ AttributeRow, AttributeRows })
+import AttributeRow from "./attribute-row"
+import AttributeRows from "./attribute-rows"
+import Card from "./card"
+import Checkbox from "./checkbox"
+import Checkboxes from "./checkboxes"
+import Input from "./input"
+import Paginate from "./paginate"
+import RadioButtons from "./radio-buttons"
+import Select from "./input"
+import SortLink from "./sort-link"
 
 export {
   AttributeRow,
