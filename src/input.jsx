@@ -20,6 +20,7 @@ export default class ApiMakerBootstrapStringInput extends React.Component {
     model: PropTypes.object,
     name: PropTypes.string,
     placeholder: PropTypes.node,
+    prepend: PropTypes.node,
     small: PropTypes.bool,
     type: PropTypes.string,
     wrapperClassName: PropTypes.string
@@ -63,6 +64,7 @@ export default class ApiMakerBootstrapStringInput extends React.Component {
       model,
       name,
       onChange,
+      prepend,
       ...restProps
     } = this.props
 
