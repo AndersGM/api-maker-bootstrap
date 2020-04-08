@@ -6,7 +6,7 @@ import Checkboxes from "./checkboxes"
 import Input from "./input"
 import Paginate from "./paginate"
 import RadioButtons from "./radio-buttons"
-import Select from "./input"
+import Select from "./select"
 import SortLink from "./sort-link"
 
 export {
