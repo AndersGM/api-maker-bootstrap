@@ -122,7 +122,7 @@ export default class ApiMakerBootstrapInput extends React.Component {
               id={this.inputId()}
               model={model}
               name={this.inputName()}
-              onChange={e => this.onInputChanged(e)}
+              onChange={(e) => this.onInputChanged(e)}
               ref="input"
               type={this.inputType()}
               {...restProps}
