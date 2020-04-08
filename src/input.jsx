@@ -1,5 +1,5 @@
 import { ApiMakerInput, idForComponent, nameForComponent } from "api-maker-inputs"
-import EventListener from "api-maker/event-listener"
+import { EventListener } from "api-maker"
 import InvalidFeedback from "./invalid-feedback"
 import MoneyInput from "./money-input"
 import PropTypes from "prop-types"

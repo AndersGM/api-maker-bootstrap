@@ -26,6 +26,8 @@
   },
   "homepage": "https://github.com/kaspernj/api-maker-bootstrap#readme",
   "dependencies": {
+    "api-maker": "https://github.com/kaspernj/api-maker.git",
+    "api-maker-inputs": "https://github.com/kaspernj/api-maker-inputs.git",
     "prop-types": "^15.7.2",
     "prop-types-exact": "^1.2.0",
     "react": "^16.13.1"

@@ -1,4 +1,4 @@
-import EventListener from "api-maker/event-listener"
+import { EventListener } from "api-maker"
 import InvalidFeedback from "./invalid-feedback"
 import PropTypesExact from "prop-types-exact"
 import React from "react"
