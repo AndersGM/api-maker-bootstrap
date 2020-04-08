@@ -11,7 +11,7 @@ const SortLink = require("./sort-link")
 
 console.log({ AttributeRow, AttributeRows })
 
-module.exports = {
+export {
   AttributeRow,
   AttributeRows,
   Card,
