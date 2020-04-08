@@ -63,7 +63,7 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
           />
 
           {this.label() &&
-            <label className={this.labelClassName()} htmlFor={id}>
+            <label className={this.labelClassName()} htmlFor={this.inputId()}>
               {this.label()}
             </label>
           }
