@@ -43,7 +43,7 @@ export default class ApiMakerBootstrapStringInput extends React.Component {
   }
 
   setForm() {
-    const form = this.refs.input && this.refs.input.form
+    const form = this.refs.input && this.refs.input.refs.input && this.refs.input.refs.input.form
     if (form != this.state.form) this.setState({form})
   }
 

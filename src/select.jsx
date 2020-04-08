@@ -42,7 +42,7 @@ export default class ApiMakerBootstrapSelect extends React.Component {
   }
 
   setForm() {
-    const form = this.refs.select && this.refs.select.form
+    const form = this.refs.select && this.refs.select.refs.select && this.refs.select.refs.select.form
     if (form != this.state.form) this.setState({form})
   }
 

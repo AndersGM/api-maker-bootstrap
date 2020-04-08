@@ -1,8 +1,8 @@
+import { Checkbox, idForComponent, nameForComponent } from "api-maker-inputs"
+import classNames from "classnames"
 import { EventListener } from "api-maker"
 import PropTypes from "prop-types"
 import React from "react"
-
-const inflection = require("inflection")
 
 export default class ApiMakerBootstrapCheckbox extends React.Component {
   static defaultProps = {
@@ -12,8 +12,6 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
   static propTypes = {
     attribute: PropTypes.string,
     className: PropTypes.string,
-    "data-action": PropTypes.string,
-    "data-target": PropTypes.string,
     defaultChecked: PropTypes.bool,
     defaultValue: PropTypes.node,
     hint: PropTypes.node,
@@ -43,34 +41,26 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
   }
 
   setForm() {
-    const form = this.refs.input && this.refs.input.form
+    const form = this.refs.checkbox && this.refs.checkbox.refs.input && this.refs.checkbox.refs.input.form
     if (form != this.state.form) this.setState({form})
   }
 
   render() {
-    const { defaultValue, zeroInput } = this.props
+    const { className, hint, id, label, labelClassName, wrapperClassName, ...restProps } = this.props
     const { form, validationErrors } = this.state
-    const id = this.inputId()
 
     return (
-      <div className={this.wrapperClassName()}>
+      <div className={classNames("form-check-input", className)}>
         {form && <EventListener event="validation-errors" onCalled={event => this.onValidationErrors(event)} target={form} />}
         <div className="form-check">
-          {zeroInput &&
-            <input defaultValue="0" name={this.inputName()} type="hidden" type="hidden" />
-          }
-          <input
-            data-target={this.props["data-target"]}
+          <Checkbox
             defaultChecked={this.inputDefaultChecked()}
             className={this.className()}
-            data-action={this.props["data-action"]}
-            defaultValue={defaultValue}
-            id={id}
+            id={this.inputId()}
             name={this.inputName()}
-            onChange={this.props.onChange}
-            ref="input"
-            type="checkbox"
-            />
+            ref="checkbox"
+            {...restProps}
+          />
 
           {this.label() &&
             <label className={this.labelClassName()} htmlFor={id}>
@@ -78,27 +68,14 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
             </label>
           }
         </div>
-        {this.props.hint &&
+        {hint &&
           <p className="text-muted">
-            {this.props.hint}
+            {hint}
           </p>
         }
         {validationErrors.length > 0 && <InvalidFeedback errors={validationErrors} />}
       </div>
     )
-  }
-
-  className() {
-    const classNames = ["form-check-input"]
-
-    if (this.props.className)
-      classNames.push(this.props.className)
-
-    return classNames.join(" ")
-  }
-
-  generatedId() {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
   }
 
   inputDefaultChecked() {
@@ -113,17 +90,11 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
   }
 
   inputId() {
-    if (this.props.id) {
-      return this.props.id
-    } else if (this.props.model) {
-      return `${this.props.model.modelClassData().paramKey}_${inflection.underscore(this.props.attribute)}`
-    } else {
-      return this.generatedId()
-    }
+    return idForComponent(this)
   }
 
   inputName() {
-
+    return nameForComponent(this)
   }
 
   onValidationErrors(event) {
