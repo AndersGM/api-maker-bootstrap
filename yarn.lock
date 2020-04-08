@@ -1059,7 +1059,7 @@ anymatch@^2.0.0:
 
 "api-maker-inputs@https://github.com/kaspernj/api-maker-inputs.git":
   version "1.0.0"
-  resolved "https://github.com/kaspernj/api-maker-inputs.git#b88842e73be3e976d4765a8c934c93f49a88fc3a"
+  resolved "https://github.com/kaspernj/api-maker-inputs.git#ae6980030d33561125ef1003c0176310450849a2"
   dependencies:
     classnames "^2.2.6"
     inflection "^1.12.0"
@@ -1067,7 +1067,7 @@ anymatch@^2.0.0:
 
 "api-maker@https://github.com/kaspernj/api-maker.git":
   version "1.0.0"
-  resolved "https://github.com/kaspernj/api-maker.git#8cdf78856b8572628d61184b0bb1fd9aeaa75dc7"
+  resolved "https://github.com/kaspernj/api-maker.git#1d86a09dacea701f2ec4565e81631dc9e285aaa3"
   dependencies:
     form-serialize "^0.7.2"
     inflection "^1.12.0"
