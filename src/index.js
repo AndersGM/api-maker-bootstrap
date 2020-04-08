@@ -1,13 +1,13 @@
-const AttributeRow = require("./attribute-row").default
-const AttributeRows = require("./attribute-rows").default
-const Card = require("./card").default
-const Checkbox = require("./checkbox").default
-const Checkboxes = require("./checkboxes").default
-const Input = require("./input").default
-const Paginate = require("./paginate").default
-const RadioButtons = require("./radio-buttons").default
-const Select = require("./input").default
-const SortLink = require("./sort-link").default
+const AttributeRow = require("./attribute-row")
+const AttributeRows = require("./attribute-rows")
+const Card = require("./card")
+const Checkbox = require("./checkbox")
+const Checkboxes = require("./checkboxes")
+const Input = require("./input")
+const Paginate = require("./paginate")
+const RadioButtons = require("./radio-buttons")
+const Select = require("./input")
+const SortLink = require("./sort-link")
 
 console.log({ AttributeRow, AttributeRows })
 
