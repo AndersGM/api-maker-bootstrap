@@ -50,12 +50,12 @@ export default class ApiMakerBootstrapCheckbox extends React.Component {
     const { form, validationErrors } = this.state
 
     return (
-      <div className={classNames("form-check-input", className)}>
+      <div className={this.wrapperClassName()}>
         {form && <EventListener event="validation-errors" onCalled={event => this.onValidationErrors(event)} target={form} />}
         <div className="form-check">
           <Checkbox
             defaultChecked={this.inputDefaultChecked()}
-            className={this.className()}
+            className={classNames("form-check-input", className)}
             id={this.inputId()}
             name={this.inputName()}
             ref="checkbox"
