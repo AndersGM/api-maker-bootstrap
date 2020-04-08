@@ -1,13 +1,13 @@
-import AttributeRow from "./attribute-row.jsx"
-import AttributeRows from "./attribute-rows.jsx"
-import Card from "./card.jsx"
-import Checkbox from "./checkbox.jsx"
-import Checkboxes from "./checkboxes.jsx"
-import Input from "./input.jsx"
-import Paginate from "./paginate.jsx"
-import RadioButtons from "./radio-buttons.jsx"
-import Select from "./input.jsx"
-import SortLink from "./sort-link.jsx"
+import AttributeRow from "./attribute-row"
+import AttributeRows from "./attribute-rows"
+import Card from "./card"
+import Checkbox from "./checkbox"
+import Checkboxes from "./checkboxes"
+import Input from "./input"
+import Paginate from "./paginate"
+import RadioButtons from "./radio-buttons"
+import Select from "./input"
+import SortLink from "./sort-link"
 
 export {
   AttributeRow,

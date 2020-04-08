@@ -1067,7 +1067,7 @@ anymatch@^2.0.0:
 
 "api-maker@https://github.com/kaspernj/api-maker.git":
   version "1.0.0"
-  resolved "https://github.com/kaspernj/api-maker.git#33e66dfb3dc7e694828fac99886fffcfa7647807"
+  resolved "https://github.com/kaspernj/api-maker.git#83bd520ed5788fb7572c3a53860575bf211494dd"
   dependencies:
     form-serialize "^0.7.2"
     inflection "^1.12.0"
