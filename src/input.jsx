@@ -4,7 +4,7 @@ import InvalidFeedback from "./invalid-feedback"
 import PropTypes from "prop-types"
 import React from "react"
 
-export default class ApiMakerBootstrapStringInput extends React.Component {
+export default class ApiMakerBootstrapInput extends React.Component {
   static propTypes = {
     append: PropTypes.node,
     attribute: PropTypes.string,
@@ -224,7 +224,7 @@ export default class ApiMakerBootstrapStringInput extends React.Component {
 
   // This fixes an issue in Firefox and ActiveStorage, where uploads would be a blank string if a file wasn't chosen
   getBlankInputName() {
-    const value = this.refs.input.value
+    const value = this.refs.input.refs.input.value
     return (this.props.type == "file" && value == "")
   }
 
