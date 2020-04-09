@@ -1,5 +1,5 @@
-import { Input, idForComponent, Money, nameForComponent } from "api-maker-inputs"
-import { EventListener } from "api-maker"
+import { Input, idForComponent, Money, nameForComponent } from "@kaspernj/api-maker-inputs"
+import { EventListener } from "@kaspernj/api-maker"
 import InvalidFeedback from "./invalid-feedback"
 import PropTypes from "prop-types"
 import React from "react"

@@ -1,4 +1,4 @@
-import { EventListener } from "api-maker"
+import { EventListener } from "@kaspernj/api-maker"
 import PropTypes from "prop-types"
 import PropTypesExact from "prop-types-exact"
 import React from "react"

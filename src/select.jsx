@@ -1,5 +1,5 @@
-import { EventListener } from "api-maker"
-import { idForComponent, nameForComponent, Select } from "api-maker-inputs"
+import { EventListener } from "@kaspernj/api-maker"
+import { idForComponent, nameForComponent, Select } from "@kaspernj/api-maker-inputs"
 import InvalidFeedback from "./invalid-feedback"
 import PropTypes from "prop-types"
 import React from "react"
@@ -9,9 +9,7 @@ const inflection = require("inflection")
 export default class ApiMakerBootstrapSelect extends React.Component {
   static propTypes = {
     attribute: PropTypes.string,
-    children: PropTypes.node,
     className: PropTypes.string,
-    defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number, PropTypes.string]),
     description: PropTypes.node,
     id: PropTypes.string,
     includeBlank: PropTypes.bool,
@@ -20,7 +18,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
     label: PropTypes.node,
     labelContainerClassName: PropTypes.string,
     model: PropTypes.object,
-    name: PropTypes.string,
     placeholder: PropTypes.string,
     options: PropTypes.array,
     wrapperClassName: PropTypes.string
@@ -43,14 +40,17 @@ export default class ApiMakerBootstrapSelect extends React.Component {
 
   setForm() {
     const form = this.refs.select && this.refs.select.refs.select && this.refs.select.refs.select.form
-    if (form != this.state.form) this.setState({form})
+
+    if (form != this.state.form) {
+      console.log("Setting form", {form})
+      this.setState({form})
+    }
   }
 
   render() {
     const { form, validationErrors } = this.state
     const {
       attribute,
-      children,
       className,
       defaultValue,
       description,
@@ -61,7 +61,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
       label,
       labelContainerClassName,
       model,
-      name,
       placeholder,
       options,
       wrapperClassName,
@@ -89,10 +88,8 @@ export default class ApiMakerBootstrapSelect extends React.Component {
           </span>
         }
         <Select
-          defaultValue={this.inputDefaultValue()}
           className={this.selectClassName()}
           id={this.inputId()}
-          name={this.inputName()}
           ref="select"
           {...restProps}
         />
@@ -111,19 +108,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
       return true
     } else {
       return false
-    }
-  }
-
-  inputDefaultValue() {
-    if ("defaultValue" in this.props) {
-      return this.props.defaultValue
-    } else if (this.props.selected) {
-      return this.props.selected
-    } else if (this.props.model) {
-      if (!this.props.model[this.props.attribute])
-        throw new Error(`No attribute by that name: ${this.props.attribute}`)
-
-      return this.props.model[this.props.attribute]()
     }
   }
 
