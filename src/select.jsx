@@ -12,14 +12,12 @@ export default class ApiMakerBootstrapSelect extends React.Component {
     className: PropTypes.string,
     description: PropTypes.node,
     id: PropTypes.string,
-    includeBlank: PropTypes.bool,
     hint: PropTypes.node,
     hintBottom: PropTypes.node,
     label: PropTypes.node,
     labelContainerClassName: PropTypes.string,
     model: PropTypes.object,
     placeholder: PropTypes.string,
-    options: PropTypes.array,
     wrapperClassName: PropTypes.string
   }
 
@@ -42,7 +40,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
     const form = this.refs.select && this.refs.select.refs.select && this.refs.select.refs.select.form
 
     if (form != this.state.form) {
-      console.log("Setting form", {form})
       this.setState({form})
     }
   }
@@ -50,19 +47,15 @@ export default class ApiMakerBootstrapSelect extends React.Component {
   render() {
     const { form, validationErrors } = this.state
     const {
-      attribute,
       className,
       defaultValue,
       description,
       id,
-      includeBlank,
       hint,
       hintBottom,
       label,
       labelContainerClassName,
-      model,
       placeholder,
-      options,
       wrapperClassName,
       ...restProps
     } = this.props
@@ -101,14 +94,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
         {validationErrors.length > 0 && <InvalidFeedback errors={validationErrors} />}
       </div>
     )
-  }
-
-  includeBlank() {
-    if (this.props.includeBlank || !this.props.multiple) {
-      return true
-    } else {
-      return false
-    }
   }
 
   inputId() {
