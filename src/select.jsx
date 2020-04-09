@@ -48,7 +48,6 @@ export default class ApiMakerBootstrapSelect extends React.Component {
     const { form, validationErrors } = this.state
     const {
       className,
-      defaultValue,
       description,
       id,
       hint,
