@@ -29,7 +29,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      blankInputName: this.props.type == "file",
       validationErrors: []
     }
   }
@@ -183,9 +182,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
   }
 
   inputName() {
-    if (this.state.blankInputName)
-      return ""
-
     return nameForComponent(this)
   }
 
