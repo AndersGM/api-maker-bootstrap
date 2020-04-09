@@ -55,6 +55,7 @@ export default class ApiMakerBootstrapSelect extends React.Component {
       hintBottom,
       label,
       labelContainerClassName,
+      name,
       placeholder,
       wrapperClassName,
       ...restProps
@@ -83,6 +84,7 @@ export default class ApiMakerBootstrapSelect extends React.Component {
         <Select
           className={this.selectClassName()}
           id={this.inputId()}
+          name={this.inputName()}
           ref="select"
           {...restProps}
         />
