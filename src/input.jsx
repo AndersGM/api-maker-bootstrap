@@ -42,7 +42,7 @@ export default class ApiMakerBootstrapInput extends React.Component {
   }
 
   setForm() {
-    const form = this.refs.input && this.refs.input.refs.input && this.refs.input.refs.input.form
+    const form = dig(this, "refs", "input", "refs", "input", "form")
     if (form != this.state.form) this.setState({form})
   }
 
@@ -80,16 +80,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
             {hint}
           </span>
         }
-        {this.inputType() == "textarea" &&
-          <textarea
-            className={this.inputClassName()}
-            defaultValue={this.inputDefaultValue()}
-            id={this.inputId()}
-            name={this.inputName()}
-            ref="input"
-            {...restProps}
-          />
-        }
         {this.inputType() == "money" &&
           <Money
             attribute={attribute}
@@ -104,7 +94,7 @@ export default class ApiMakerBootstrapInput extends React.Component {
             ref="money"
           />
         }
-        {this.inputType() != "textarea" && this.inputType() != "money" &&
+        {this.inputType() != "money" &&
           <div className="input-group">
             {prepend &&
               <div className="input-group-prepend">

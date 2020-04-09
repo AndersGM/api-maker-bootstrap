@@ -31,5 +31,8 @@
     "qs": "^6.9.3",
     "react": "^16.13.1",
     "react-router-dom": "^5.1.2"
+  },
+  "dependencies": {
+    "@kaspernj/object-digger": "^1.0.1"
   }
 }
