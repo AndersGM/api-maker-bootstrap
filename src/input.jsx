@@ -201,12 +201,6 @@ export default class ApiMakerBootstrapInput extends React.Component {
     return classNames.join(" ")
   }
 
-  // This fixes an issue in Firefox and ActiveStorage, where uploads would be a blank string if a file wasn't chosen
-  getBlankInputName() {
-    const value = this.refs.input.refs.input.value
-    return (this.props.type == "file" && value == "")
-  }
-
   onValidationErrors(event) {
     const validationErrors = event.detail.getValidationErrorsForInput(this.props.attribute, this.inputName())
     this.setState({validationErrors})
