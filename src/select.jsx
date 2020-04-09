@@ -1,3 +1,4 @@
+import { dig } from "@kaspernj/object-digger"
 import { EventListener } from "@kaspernj/api-maker"
 import { idForComponent, nameForComponent, Select } from "@kaspernj/api-maker-inputs"
 import InvalidFeedback from "./invalid-feedback"
@@ -37,7 +38,7 @@ export default class ApiMakerBootstrapSelect extends React.Component {
   }
 
   setForm() {
-    const form = this.refs.select && this.refs.select.refs.select && this.refs.select.refs.select.form
+    const form = dig(this, "refs", "select", "refs", "select", "form")
 
     if (form != this.state.form) {
       this.setState({form})
