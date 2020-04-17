@@ -90,8 +90,8 @@ export default class ApiMakerBootstrapInput extends React.Component {
             name={name}
             className={this.inputClassName()}
             onChange={this.props.onChange}
-            placeholder={placeholder}
-            small={small}
+            placeholder={this.props.placeholder}
+            small={this.props.small}
             ref="money"
           />
         }
